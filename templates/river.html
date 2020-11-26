@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Add River Details{% endblock %}
+
+{% block app_content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Sign up</h1>
+      <hr>
+      <!-- We set the action attribute to be the Flask route we want to send form data to 
+           Also, we need to pass the request method in the method attribute - here it is "POST" -->
+      <form action="/river" method="POST">
+
+        <div class="form-group">
+          <label>River Name</label>
+          <!-- To access form data in Flask, you must provide the name attribute in each of the forms input tags -->
+          <input type="text" class="form-control" id="rivername" name="rivername" placeholder="Enter the name of the river">
+        </div>
+      
+        <div class="form-group">
+          <label>Length (Km)</label>
+          <input type="number" class="form-control" id="length" name="length" placeholder="Enter river length in km">
+        </div>
+      
+        <div class="form-group">
+          <label>Rapid Grades</label>
+          <input type="number" class="form-control" id="rapids" name="rapids" placeholder="Enter the grade of rapids">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add River</button>
+      
+        {% if feedback %}
+        <p class="text-danger float-right">{{ feedback }}</p>
+        {% endif %}
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

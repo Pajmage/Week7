@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}See River Details{% endblock %}
+
+{% block app_content %}
+<form action="" method ='POST'>
+<button type="submit" class="btn btn-primary" name="Display" value="Display">View Rivers</button>
+</form>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4>Available Rivers</h4>
+      
+      <ul>
+        River ID || River Name || Length (Km) || Length (Miles) || Rating
+        {% for river in rivers %}
+            <li>{{ river }}</li>
+        {% endfor %}
+        
+      </ul>
+    
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table">
+      <thead>
+          <tr>
+            <th>River ID</th>
+            <th>River Name</th>
+            <th>Km</th>
+            <th>Miles</th>
+            <th>Rating</th>
+          </tr>
+      </thead>
+      <tbody>
+
+          {% for river in rivers %}
+          <tr>
+            {% for element in river %}
+              <td>{{ element }}</td>
+            {% endfor %}
+            </tr>
+          {% endfor %}
+
+        </tbody>
+     
+  </table>
+</div>
+
+
+{% endblock %}

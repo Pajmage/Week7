@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class = "header-row">
+        <div class="headerbanner">
+            <img src="{{ url_for('static', filename="Images/header.jpg")}}" , height="150">
+        </div>
+    </div>
+    <div class="NavBar" id="NavBar">
+        <ul>
+            <li><a href="/river">Add River Details</a></li>
+            <li><a href="/results">See Rivers</a></li>
+        </ul>
+    </div>
+
+    {% block main %}
+
+    {% endblock %}
+    
+</body>
+</html>
